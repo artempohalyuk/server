@@ -9,8 +9,6 @@ const verifyToken = (req, res, next) => {
     }
 
     jwt.verify(token, 'secret-key', (err, decoded) => {
-      const userId = decoded.userId;
-
       if (err) {
         if (err.name === 'TokenExpiredError') {
           return res.status(401).json({ message: 'Token expired' });
@@ -18,6 +16,8 @@ const verifyToken = (req, res, next) => {
 
         return res.status(401).json({ message: 'Invalid token' });
       }
+
+      const userId = decoded.userId;
 
       User.findById(userId).then(user => {
         if (!user) {

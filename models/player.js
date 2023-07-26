@@ -27,6 +27,16 @@ const playerSchema = new mongoose.Schema({
   weight: Number,
 });
 
+playerSchema.set('toJSON', {
+  virtuals: true,
+  versionKey: false,
+  transform: function (doc, ret) {
+    ret.id = ret._id;
+    delete ret._id;
+    delete ret.__v;
+  },
+});
+
 const Player = mongoose.model('Player', playerSchema);
 
 module.exports = Player;

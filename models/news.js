@@ -25,6 +25,16 @@ const newsSchema = new mongoose.Schema({
   originalSourceUrl: String,
 });
 
+newsSchema.set('toJSON', {
+  virtuals: true,
+  versionKey: false,
+  transform: function (doc, ret) {
+    ret.id = ret._id;
+    delete ret._id;
+    delete ret.__v;
+  },
+});
+
 const News = mongoose.model('News', newsSchema);
 
 module.exports = News;
