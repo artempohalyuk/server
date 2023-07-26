@@ -117,6 +117,5 @@ module.exports = {
   getUserTeam,
   createUserTeam,
   getNewsDetails,
-  removeUserTeam,
   updateUserTeam
 };

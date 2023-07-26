@@ -8,7 +8,6 @@ const {
     getUserTeam,
     createUserTeam,
     getNewsDetails,
-    removeUserTeam,
     updateUserTeam
 } = require('../controllers/data');
 
@@ -20,6 +19,5 @@ router.get('/news/:id', getNewsDetails);
 router.get('/teams/load', getUserTeam);
 router.post('/teams/create', createUserTeam);
 router.put('/teams/update', updateUserTeam);
-router.delete('/teams/delete', removeUserTeam);
 
 module.exports = router;
