@@ -17,7 +17,7 @@ const verifyToken = require('./middlewares/authentication');
 const handleResponse = require('./middlewares/responseHandler');
 const app = express();
 const corsOptions = {
-  origin: '*',
+  origin: [process.env.AUTH_URL, process.env.MAIN_URL],
   credentials: true,
 };
 
