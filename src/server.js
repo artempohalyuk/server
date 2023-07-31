@@ -31,7 +31,6 @@ app.use(verifyToken);
 app.use('/api', data);
 
 app.use((req, res) => {
-  console.log(process.env.AUTH_URL);
   res.status(404).json({ message: 'Not Found' });
 });
 

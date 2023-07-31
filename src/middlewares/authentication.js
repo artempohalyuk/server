@@ -5,6 +5,7 @@ const verifyToken = (req, res, next) => {
     const token = req.headers.authorization;
 
     if (!token) {
+      console.log(process.env.AUTH_URL);
       return res.status(401).json({ message: 'No token provided' });
     }
 
